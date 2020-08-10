@@ -9456,4 +9456,3 @@ input[type=checkbox]:not(:disabled).tabbed:focus~.lever:after, input[type=checkb
 .switch label input[type=checkbox]:checked+.lever.switch-col-white:after {
     background-color: #ffffff
 }
-

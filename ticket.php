@@ -71,17 +71,33 @@
                         <div class="card">
                             <div class="row">
                                 <div class="col-xlg-2 col-lg-3 col-md-4">
-                                    <div class="card-body inbox-panel">
-                                    <button type="button" class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add-contact">Add New Contact</button>
-                                        <h3 class="card-title m-t-40">Labels</h3>
-                                        <div class="list-group b-0 mail-list"> <a href="#" class="list-group-item"><span class="fa fa-circle text-info m-r-10"></span>Work</a> <a href="#" class="list-group-item"><span class="fa fa-circle text-warning m-r-10"></span>Family</a> <a href="#" class="list-group-item"><span class="fa fa-circle text-purple m-r-10"></span>Private</a> <a href="#" class="list-group-item"><span class="fa fa-circle text-danger m-r-10"></span>Friends</a> <a href="#" class="list-group-item"><span class="fa fa-circle text-success m-r-10"></span>Corporate</a> </div>
+                                    <div class="card-body inbox-panel"><a href="app-compose.html" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light">Compose</a>
+                                        <ul class="list-group list-group-full">
+                                            <li class="list-group-item active"> <a href="javascript:void(0)"><i class="mdi mdi-gmail"></i> Inbox </a><span class="badge badge-success ml-auto">6</span></li>
+                                            <li class="list-group-item">
+                                                <a href="javascript:void(0)"> <i class="mdi mdi-star"></i> Starred </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="javascript:void(0)"> <i class="mdi mdi-send"></i> Draft </a><span class="badge badge-danger ml-auto">3</span></li>
+                                            <li class="list-group-item ">
+                                                <a href="javascript:void(0)"> <i class="mdi mdi-file-document-box"></i> Sent Mail </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="javascript:void(0)"> <i class="mdi mdi-delete"></i> Trash </a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                                 <div class="col-xlg-10 col-lg-9 col-md-8 bg-light-part b-l">
                         
+                                <?php
+                                    $sql = "SELECT *,count(status_id) as status FROM `ticket` GROUP BY status_id";
+                                    require('config/dbconfig.php');
+                                    $result = mysqli_query($con, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                ?>
                             <div class="card-body">
                                 <h4 class="card-title">Support Ticket List</h4>
-                                <h6 class="card-subtitle">List of ticket opend by customers</h6>
                                 <div class="row m-t-40">
                                     <!-- Column -->
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
@@ -96,8 +112,10 @@
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
                                         <div class="card card-success card-inverse">
                                             <div class="box text-center">
-                                                <h1 class="font-light text-white">1,738</h1>
-                                                <h6 class="text-white">Responded</h6>
+                                                <h1 class="font-light text-white"><?php if ($row['status_id'] ==0) {
+                                                    echo $row['status'];
+                                                }  ?></h1>
+                                                <h6 class="text-white">Solved</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -114,7 +132,9 @@
                                     <div class="col-md-6 col-lg-3 col-xlg-3">
                                         <div class="card card-inverse card-dark">
                                             <div class="box text-center">
-                                                <h1 class="font-light text-white">964</h1>
+                                                <h1 class="font-light text-white"><?php if ($row['status_id'] ==1) {
+                                                    echo $row['status'];
+                                                }  ?></h1>
                                                 <h6 class="text-white">Pending</h6>
                                             </div>
                                         </div>
@@ -125,9 +145,9 @@
                                     <table id="ticket" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
                                         <thead>
                                             <tr>
-                                                <th>ID #</th>
-                                                <th>Opened By</th>
-                                                <th>Cust. Email</th>
+                                                <th>Ticket #</th>
+                                                <th>Client Name</th>
+                                                <th>Client Email</th>
                                                 <th>Sbuject</th>
                                                 <th>Status</th>
                                                 <th>Assign to</th>
@@ -136,77 +156,40 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+
+                                             <?php
+                            $sql = "select * from ticket";
+                            require('config/dbconfig.php');
+                            $result = mysqli_query($con, $sql);
+                            while($data = mysqli_fetch_assoc($result)){
+                                $mid = $data['ticket_id'];
+                                // $path = $data['image'];
+                                            echo"
                                             <tr>
-                                                <td>1011</td>
+                                                <td>".$data['ticket_number']."</td>
                                                 <td>
-                                                    <a href="javascript:void(0)"><img src="assets/images/users/1.jpg" alt="user" class="img-circle" /> Genelia Deshmukh</a>
+                                                    <a href='javascript:void(0)'><img src='assets/images/users/1.jpg' alt='user' class='img-circle' />".$data['first_name']." ".$data['last_name']."</a>
                                                 </td>
-                                                <td>genelia@gmail.com</td>
-                                                <td>How to customize the template?</td>
-                                                <td><span class="label label-warning">New</span> </td>
-                                                <td>Johnathon</td>
-                                                <td>14-10-2017</td>
+                                                <td>".$data['email']."</td>
+                                                <td>".$data['Subject']."</td>";
+                                                if($data['status_id'] == 0){
+                                                    echo "<td><span class='label label-inverse'>Pending</span></td>";
+                                                }
+                                                else if($data['status_id'] ==1) {
+                                                    echo"<td><span class='label label-success'>Solved</span></td>";
+                                                }
+                                                else if($data['status_id'] ==2) {
+                                                    echo"<td><span class='label label-warning'>Open</span></td>";
+                                                }
+                                                                                            
+                                                echo"<td>Johnathon</td>
+                                                <td>".$data['ticket_date']."</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
+                                                    <a href='index.php&mid=$mid' class='btn btn-sm btn-icon btn-pure btn-outline delete-row-btn' data-toggle='tooltip' data-original-title='Delete'><i class='ti-more' aria-hidden='true'></i></a>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>8024</td>
-                                                <td>
-                                                    <a href="javascript:void(0)"><img src="assets/images/users/6.jpg" alt="user" class="img-circle" /> atest adg</a>
-                                                </td>
-                                                <td>govinda@gmail.com</td>
-                                                <td>How to set Horizontal nav</td>
-                                                <td><span class="label label-success">Complete</span> </td>
-                                                <td>Hritik Roshan</td>
-                                                <td>13-10-2017</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5124</td>
-                                                <td>
-                                                    <a href="javascript:void(0)"><img src="assets/images/users/5.jpg" alt="user" class="img-circle" /> Raja Mauli</a>
-                                                </td>
-                                                <td>bahubali@gmail.com</td>
-                                                <td>How this will connect with bahubali</td>
-                                                <td><span class="label label-inverse">Pending</span> </td>
-                                                <td>Hritik Roshan</td>
-                                                <td>12-10-2017</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
-                                                </td>
-                                            </tr>
-                                           
-                                            <tr>
-                                                <td>7524</td>
-                                                <td>
-                                                    <a href="javascript:void(0)"><img src="assets/images/users/4.jpg" alt="user" class="img-circle" /> Raja Mauli</a>
-                                                </td>
-                                                <td>bahubali@gmail.com</td>
-                                                <td>How this will connect with bahubali</td>
-                                                <td><span class="label label-inverse">Pending</span> </td>
-                                                <td>Hritik Roshan</td>
-                                                <td>12-10-2017</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4124</td>
-                                                <td>
-                                                    <a href="javascript:void(0)"><img src="assets/images/users/5.jpg" alt="user" class="img-circle" /> Rana Dagubati</a>
-                                                </td>
-                                                <td>ranabati@gmail.com</td>
-                                                <td>How to set navigation</td>
-                                                <td><span class="label label-success">Complete</span> </td>
-                                                <td>Hritik Roshan</td>
-                                                <td>12-10-2017</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-original-title="Delete"><i class="ti-close" aria-hidden="true"></i></button>
-                                                </td>
-                                            </tr>
+                                            </tr>";  
+                                                }
+                                            ?> 
                                         </tbody>
                                         <tfoot>
                                             <tr>

@@ -168,14 +168,14 @@ $ticketNumber = rand(1000,9999);
                                         </div>
 
                                         <div class="form-group">
-                                            <textarea class="textarea_editor form-control" name="ticket_description" rows="15" placeholder="Enter text ..."></textarea>
+                                            <textarea class="form-control" name="ticket_description" rows="15" placeholder="Enter text ..."></textarea>
                                         </div>
-                                        <h4><i class="ti-link"></i> Attachment</h4>
-                                        <div class="dropzone">
-                                            <div class="fallback">
-                                                <input name="attachment" type="file" multiple />
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <label for="input-file-now-custom-1">Attachment</label>
+                                                <input type="file" id="input-file-now-custom-1" class="dropify" name="attachment" data-default-file="assets/plugins/dropify/src/images/test.jpg" />
                                             </div>
-                                        </div>
+                                      </div>
                                         <button type="submit" class="btn btn-success m-t-20"><i class="fa fa-envelope-o"></i> Send</button>
                                     </form>
                                     </div>
@@ -218,6 +218,48 @@ $ticketNumber = rand(1000,9999);
 
         $('.textarea_editor').wysihtml5();
 
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        // Basic
+        $('.dropify').dropify();
+
+        // Translated
+        $('.dropify-fr').dropify({
+            messages: {
+                default: 'Glissez-déposez un fichier ici ou cliquez',
+                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                remove: 'Supprimer',
+                error: 'Désolé, le fichier trop volumineux'
+            }
+        });
+
+        // Used events
+        var drEvent = $('#input-file-events').dropify();
+
+        drEvent.on('dropify.beforeClear', function(event, element) {
+            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+        });
+
+        drEvent.on('dropify.afterClear', function(event, element) {
+            alert('File deleted');
+        });
+
+        drEvent.on('dropify.errors', function(event, element) {
+            console.log('Has Errors');
+        });
+
+        var drDestroy = $('#input-file-to-destroy').dropify();
+        drDestroy = drDestroy.data('dropify')
+        $('#toggleDropify').on('click', function(e) {
+            e.preventDefault();
+            if (drDestroy.isDropified()) {
+                drDestroy.destroy();
+            } else {
+                drDestroy.init();
+            }
+        })
     });
     </script>
     <!-- ============================================================== -->

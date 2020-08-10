@@ -20,9 +20,9 @@
 
     <link href="assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href="css/colors/blue.css" id="theme" rel="stylesheet">
     <link href="assets/plugins/summernote/dist/summernote.css" rel="stylesheet" />
      <link href="assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="assets/plugins/dropify/dist/css/dropify.min.css">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
