@@ -23,6 +23,7 @@
     <link href="assets/plugins/summernote/dist/summernote.css" rel="stylesheet" />
      <link href="assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
       <link rel="stylesheet" href="assets/plugins/dropify/dist/css/dropify.min.css">
+      <link href="assets/plugins/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->

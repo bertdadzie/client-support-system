@@ -23,6 +23,8 @@
     <script src="assets/plugins/sweetalert/sweetalert.min.js"></script>
     <script src="assets/plugins/sweetalert/jquery.sweet-alert.custom.js"></script>
     <script src="assets/plugins/dropify/dist/js/dropify.min.js"></script>
+    <script src="assets/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
+    <script src="assets/plugins/Magnific-Popup-master/dist/jquery.magnific-popup-init.js"></script>
 
 
    

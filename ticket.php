@@ -185,7 +185,7 @@
                                                 echo"<td>Johnathon</td>
                                                 <td>".$data['ticket_date']."</td>
                                                 <td>
-                                                    <a href='index.php&mid=$mid' class='btn btn-sm btn-icon btn-pure btn-outline delete-row-btn' data-toggle='tooltip' data-original-title='Delete'><i class='ti-more' aria-hidden='true'></i></a>
+                                                    <a href='reply-ticket.php?&mid=$mid' class='btn btn-sm btn-icon btn-pure btn-outline delete-row-btn' data-toggle='tooltip' data-original-title='Delete'><i class='ti-more' aria-hidden='true'></i></a>
                                                 </td>
                                             </tr>";  
                                                 }

@@ -1,12 +1,3 @@
-<?php
-   include('session.php'); 
-    $mid = $_SESSION['ID'];
-    $sql = "SELECT *, (SELECT role_name FROM role p2 WHERE p1.role_id = p2.role_id) role1, (SELECT dept_name FROM department p3 WHERE p1.dept_id = p3.dept_id) department1 FROM supportagents p1 where supportAgents_id =$mid";
-    require('config/dbconfig.php');
-    $result = mysqli_query($con, $sql);
-    $row = mysqli_fetch_assoc($result);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,9 +42,14 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Profile</h3>
+                    <h3 class="text-themecolor">Mailbox</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item">Apps</li>
+                        <li class="breadcrumb-item active">mailbox</li>
+                    </ol>
                 </div>
                 <div class="">
                     <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
@@ -75,14 +71,8 @@
                         <div class="card">
                             <div class="row">
                                 <div class="col-xlg-2 col-lg-3 col-md-4">
-                                    <div class="card-body inbox-panel">
-                                       <div class="text-center">
-                                    <a href="app-contact-detail.html"><img src="assets/images/users/2.jpg" alt="user" class="img-circle img-responsive"></a>
-                                </div>
-                                    </div>
-                                    <div class="card-body inbox-panel">
-                                        <a href="add-ticket.php" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light">Add Ticket</a>
-                                        <ul class="list-group list-group-full">
+                                    <div class="card-body inbox-panel"><a href="add-support-agent.php" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light">Add Team member</a>
+                                         <ul class="list-group list-group-full">
                                             <li class="list-group-item">
                                                 <a href="ticket.php"> <i class="mdi mdi-star"></i> All Ticket </a>
                                             </li>
@@ -96,46 +86,73 @@
                                     </div>
                                 </div>
                                 <div class="col-xlg-10 col-lg-9 col-md-8 bg-light-part b-l">
-                                 
+                        
+                            <div class="card-body">
+                                <h4 class="card-title">Support Team</h4>
+                                <div class="table-responsive">
+                                    <table id="ticket" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
+                                        <thead>
+                                            <tr>
+                                                <th>Nmae</th>
+                                                <th>Email</th>
+                                                <th>Telepone</th>
+                                                <th>Role</th>
+                                                <th>department</th>
+                                                <th>Gender</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
-                                 <!-- .chat-right-panel -->
-                                <div class="chat-right-aside">
-                                    <!--second tab-->
-                                <div class="tab-pane" role="tabpanel">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Name</strong>
-                                                <br>
-                                                <p class="text-muted"><?php echo $row['first_Name'] . ' ' . $row['last_Name']; ?></p>
-                                            </div>
-                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Mobile</strong>
-                                                <br>
-                                                <p class="text-muted">(123) 456 7890</p>
-                                            </div>
-                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Email</strong>
-                                                <br>
-                                                <p class="text-muted">johnathan@admin.com</p>
-                                            </div>
-                                            <div class="col-md-3 col-xs-6"> <strong>Address</strong>
-                                                <br>
-                                                <p class="text-muted">London</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <p class="m-t-30">Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries </p>
-                                        <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                    </div>
+                                             <?php
+                            $sql = "SELECT *, (SELECT role_name FROM role p2 WHERE p1.role_id = p2.role_id) role1, (SELECT dept_name FROM department p3 WHERE p1.dept_id = p3.dept_id) department1 FROM supportagents p1";
+                            require('config/dbconfig.php');
+                            $result = mysqli_query($con, $sql);
+                            while($data = mysqli_fetch_assoc($result)){
+                                $mid = $data['supportAgents_id'];
+                                $path = $data['image'];
+                                            echo"
+                                            <tr>
+                                                <td>
+                                                    <a href='javascript:void(0)'><img src='$path' alt='user' class='img-circle' />".$data['first_name']." ".$data['last_name']."</a>
+                                                </td>
+                                                <td>".$data['email']."</td>
+                                                <td>".$data['phone_number']."</td>
+                                                <td><span class='label label-inverse'>".$data['role1']."</span></td>
+                                                <td>".$data['department1']."</td>
+                                                <td>".$data['gender']."</td>
+                                                <td>
+                                                    <a href='profile.php?&mid=$mid' class='btn btn-sm btn-icon btn-pure btn-outline delete-row-btn' data-toggle='tooltip' data-original-title='Delete'><i class='ti-more' aria-hidden='true'></i></a>
+                                                </td>
+                                            </tr>";  
+                                                }
+                                            ?> 
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="6">
+                                                    <div class="text-right">
+                                                        <ul class="pagination"> </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
                                 </div>
-                                </div>
-                                <!-- .chat-right-panel -->
+                            </div>
+                  
+
+
+
+
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
