@@ -170,29 +170,6 @@ $ticketNumber = rand(1000,9999);
                                             <input type="hidden" name="ticket_date" value="<?php echo $date; ?>">
                                         </div>
                                         <div class="form-group">
-                                            <div class="btn btn-inverse m-t-20">
-                                        <select class="select2 form-control custom-select" name="support_id" style="width: 100%; height:36px;">
-                                    <option selected disabled value="">Department</option>
-                                     <?php echo $dept_name;?>
-                                            </select> 
-                                        </div>
-
-                                        <div class="btn btn-inverse m-t-20">
-                                        <select class="select2 form-control custom-select" name="dept_id" style="width: 100%; height:36px;">
-                                    <option selected disabled value="">Assign Agents</option>
-                                     <?php echo  $supportagents;?>
-                                            </select> 
-                                        </div>
-
-                                        <div class="btn btn-inverse m-t-20">
-                                        <select class="select2 form-control custom-select" name="priority_id" style="width: 100%; height:36px;">
-                                     <option selected disabled value="">Priority</option>
-                                     <?php echo  $priority;?>
-                                            </select> 
-                                        </div>
-                                        </div>
-
-                                        <div class="form-group">
                                             <textarea class="form-control" name="ticket_description" rows="15" placeholder="Enter text ..."></textarea>
                                         </div>
                                         <div class="card">
