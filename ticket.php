@@ -42,14 +42,9 @@
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Mailbox</h3>
+                    <h3 class="text-themecolor">Support Ticket List</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Apps</li>
-                        <li class="breadcrumb-item active">mailbox</li>
-                    </ol>
                 </div>
                 <div class="">
                     <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
@@ -71,19 +66,17 @@
                         <div class="card">
                             <div class="row">
                                 <div class="col-xlg-2 col-lg-3 col-md-4">
-                                    <div class="card-body inbox-panel"><a href="app-compose.html" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light">Compose</a>
+                                    <div class="card-body inbox-panel">
+                                        <a href="add-ticket.php" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light">Add Ticket</a>
                                         <ul class="list-group list-group-full">
-                                            <li class="list-group-item active"> <a href="javascript:void(0)"><i class="mdi mdi-gmail"></i> Inbox </a><span class="badge badge-success ml-auto">6</span></li>
                                             <li class="list-group-item">
-                                                <a href="javascript:void(0)"> <i class="mdi mdi-star"></i> Starred </a>
+                                                <a href="ticket.php"> <i class="mdi mdi-star"></i> All Ticket </a>
                                             </li>
                                             <li class="list-group-item">
-                                                <a href="javascript:void(0)"> <i class="mdi mdi-send"></i> Draft </a><span class="badge badge-danger ml-auto">3</span></li>
-                                            <li class="list-group-item ">
-                                                <a href="javascript:void(0)"> <i class="mdi mdi-file-document-box"></i> Sent Mail </a>
+                                            <a href="support-team.php"> <i class="mdi mdi-account"></i> Support team</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <a href="javascript:void(0)"> <i class="mdi mdi-delete"></i> Trash </a>
+                                            <a href="feedbacks"> <i class="mdi mdi-comment"></i> Feedbacks</a>
                                             </li>
                                         </ul>
                                     </div>
