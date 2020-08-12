@@ -231,7 +231,7 @@ $ticketNumber = rand(1000,9999);
       placeholderNumberType: "MOBILE",
       // preferredCountries: ['cn', 'jp'],
       // separateDialCode: true,
-      utilsScript: "build/js/utils.js",
+      utilsScript: "assets/plugins/intl-tel-input-master/build/js/utils.js",
     });
   </script>
 
