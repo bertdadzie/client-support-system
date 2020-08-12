@@ -146,13 +146,13 @@ $ticketNumber = rand(1000,9999);
                                             <input class="form-control" name="first_name" placeholder="First Name:">
                                         </div>
                                         <div class="form-group">
-                                            <input class="form-control" name="last_name" placeholder="Last Name:">
+                                            <input class="form-control" type="text" name="last_name" placeholder="Last Name:">
                                         </div>
                                         <div class="form-group">
                                             <input class="form-control" name="email" placeholder="Email:">
                                         </div>
                                         <div class="form-group">
-                                            <input class="form-control" name="phone" placeholder="Phone Number:">
+                                            <input class="form-control" id="phone"  name="phone" type="tel" placeholder="Phone Number:">
                                         </div>
                                         <div class="form-group">
                                             <input class="form-control" name="address" placeholder="Adress:">
@@ -207,6 +207,33 @@ $ticketNumber = rand(1000,9999);
     <!-- All Jquery -->
     <!-- ============================================================== -->
      <?php include('includes/js.php') ?>
+     <script src="assets/plugins/intl-tel-input-master/build/js/intlTelInput.js"></script>
+  <script>
+    var input = document.querySelector("#phone");
+    window.intlTelInput(input, {
+      // allowDropdown: false,
+      // autoHideDialCode: false,
+      // autoPlaceholder: "off",
+      // dropdownContainer: document.body,
+      // excludeCountries: ["us"],
+      // formatOnDisplay: false,
+      geoIpLookup: function(callback) {
+        $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+          var countryCode = (resp && resp.country) ? resp.country : "";
+          callback(countryCode);
+        });
+      },
+      // hiddenInput: "full_number",
+      // initialCountry: "auto",
+      // localizedCountries: { 'de': 'Deutschland' },
+      // nationalMode: false,
+      // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+      placeholderNumberType: "MOBILE",
+      // preferredCountries: ['cn', 'jp'],
+      // separateDialCode: true,
+      utilsScript: "build/js/utils.js",
+    });
+  </script>
 
     <script>
     $(document).ready(function() {

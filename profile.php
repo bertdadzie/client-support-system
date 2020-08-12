@@ -1,5 +1,4 @@
 <?php
-   include('session.php'); 
     $mid = $_SESSION['ID'];
     $sql = "SELECT *, (SELECT role_name FROM role p2 WHERE p1.role_id = p2.role_id) role1, (SELECT dept_name FROM department p3 WHERE p1.dept_id = p3.dept_id) department1 FROM supportagents p1 where supportAgents_id =$mid";
     require('config/dbconfig.php');
@@ -77,8 +76,9 @@
                                 <div class="col-xlg-2 col-lg-3 col-md-4">
                                     <div class="card-body inbox-panel">
                                        <div class="text-center">
-                                    <a href="app-contact-detail.html"><img src="assets/images/users/2.jpg" alt="user" class="img-circle img-responsive"></a>
-                                </div>
+                                          <a href="app-contact-detail.html"><img src="assets/images/users/2.jpg" alt="user" class="img-circle img-responsive"></a>
+                                       </div>
+                                       <hr>
                                     </div>
                                     <div class="card-body inbox-panel">
                                         <a href="add-ticket.php" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light">Add Ticket</a>

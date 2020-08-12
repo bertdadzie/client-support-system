@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/plugins/html5-editor/bootstrap-wysihtml5.css" />
     <!-- Dropzone css -->
     <link href="assets/plugins/dropzone-master/dist/dropzone.css" rel="stylesheet" type="text/css" />
-
+     <link rel="stylesheet" href="assets/plugins/intl-tel-input-master/build/css/intlTelInput.css">
 
     <link href="assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
