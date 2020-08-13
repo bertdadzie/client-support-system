@@ -1,7 +1,5 @@
-<?php 
-    $email= $_POST['email'];
-    $pword= $_POST['password'];
-    $query= "select * from supportagents where email = '$email'and password='$pword'";
+<?php
+    $query= "select * from supportagents";
     require('config/dbconfig.php');
     $res = mysqli_query($con,$query);
     $data = mysqli_fetch_assoc($res);
@@ -16,10 +14,5 @@
         $_SESSION['EMAIL'] = $data['email'];
         $_SESSION['Gender'] = $data['gender'];
         $_SESSION['Address'] = $data['address'];
-        // header('location: view-member-profile.php?mid='.$data['accId']);
-        header('location: ticket.php');
-    }else{
-        header('location: login.php?error=1');
-    }
-
+       }
 ?>

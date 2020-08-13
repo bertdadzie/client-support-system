@@ -20,9 +20,9 @@ $id=mysqli_insert_id($con);
         }
         $sql = "update ticket set attachment='$path' where ticket_id= $id";
         //mysqli_query($con, $sql);
-        header('location: ticket.php');
+        header('location: index.php?n=ticket');
     }else{
-        header('location: add-ticket.php'); 
+        header('location: index.php?n=add-ticket'); 
         //echo mysqli_error($con);
         //mysqli_query($con, $sql);
     }

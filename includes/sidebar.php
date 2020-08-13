@@ -7,21 +7,21 @@
                         <li class="nav-small-cap">PERSONAL</li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-archive"></i><span class="hide-menu">Tickets</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="ticket.php">Support Ticket</a></li>
-                                <li><a href="add-ticket.php">Add Ticket</a></li>
+                                <li><a href="index.php?n=ticket">Support Ticket</a></li>
+                                <li><a href="index.php?n=add-ticket">Add Ticket</a></li>
                             </ul>
                         </li>
                          <li> <a class="has-arrow waves-effect waves-dark" href="Settings.php" aria-expanded="false"><i class="mdi mdi-settings"></i><span class="hide-menu">Settings</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li> <a class="has-arrow" href="#" aria-expanded="false">Department</a>
                                     <ul aria-expanded="false" class="collapse">
-                                        <li><a href="add-department.php">Add Department</a></li>
+                                        <li><a href="index.php?n=add-department">Add Department</a></li>
                                         <li><a href="#">Department</a></li>
                                     </ul>
                                 </li>
                                 <li> <a class="has-arrow" href="#" aria-expanded="false">Support Agent</a>
                                     <ul aria-expanded="false" class="collapse">
-                                        <li><a href="add-support-agent.php">Add Agents</a></li>
+                                        <li><a href="index.php?n=add-support-agent">Add Agents</a></li>
                                         <li><a href="#">Agents</a></li>
                                     </ul>
                                 </li>
