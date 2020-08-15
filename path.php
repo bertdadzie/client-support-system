@@ -26,11 +26,6 @@ switch ($n) {
 		$n_title = 'brand n : Membership Application';
 		$content_title = 'add brand';
 		$content_path = 'ns/edit-ticketAction.php';
-	case 'reply-ticket':
-		$n_title = 'ticket: Reply ticket';
-		$content_title = 'Reply ticket';
-		$content_path = 'n/reply-ticket.php';
-		break;
 	
 	//add-department////////////////////////////////////////////////////////////
 	case 'add-department':
@@ -44,10 +39,16 @@ switch ($n) {
 		$content_title = 'Add Support Agent';
 		$content_path = 'n/add-support-agent.php';
 		break;
-	case 'clientAction.php':
-		$n_title = 'agent : add support agent';
-		$content_title = 'add support agent';
-		$content_path = 'n/clientAction.php.php';
+	//reply////////////////////////////////////////////////////////////
+	case 'reply-ticket':
+		$n_title = 'ticket: Reply ticket';
+		$content_title = 'Reply ticket';
+		$content_path = 'n/reply-ticket.php';
+		break;
+	case 'replies_action':
+		$n_title = 'replies: replies action';
+		$content_title = 'replies action';
+		$content_path = 'n/replies_action.php';
 		break;
 	case 'all-brand':
 		$n_title = 'brand n : Membership Application';

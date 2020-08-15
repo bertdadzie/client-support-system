@@ -13,6 +13,17 @@
     $row = mysqli_fetch_assoc($result);
 
     $date= date("Y-m-d");
+
+
+$selectReply = '';
+$query = "SELECT * FROM `ticket_replies`";
+$result1 = mysqli_query($con, $query);
+$data = mysqli_fetch_assoc($result1);
+ $selectReply .= '
+
+  <div class="box bg-light-inverse">"'.$data["replies"].'"</div>
+  <div class="chat-time">10:57 am</div>
+ ';
 ?>
 
                 
@@ -55,13 +66,13 @@
                                             </li>
                                             <li class="list-group-item">Status:
                                             <?php  if($row['status_id'] == 0){
-                                                    echo "<td><span class='label label-inverse'>Pending</span></td>";
+                                                    echo "<td><span class='label label-inverse'>Pending</span><span>Change</span></td>";
                                                 }
                                                 else if($row['status_id'] ==1) {
-                                                    echo"<td><span class='label label-success'>Solved</span></td>";
+                                                    echo"<td><span class='label label-success'>Solved</span><span>Change</span></td>";
                                                 }
                                                 else if($row['status_id'] ==2) {
-                                                    echo"<td><span class='label label-warning'>Open</span></td>";
+                                                    echo"<td><span class='label label-warning'>Open</span><a href='index.php?n=ticket'>Change</a></td>";
                                                 } ?>
                                                        
                                             </li>
@@ -91,7 +102,7 @@
                                 <div class="chat-right-aside">
                                     <div class="chat-main-header">
                                         <div class="p-20 b-b">
-                                            <h3 class="box-title">Chat Message</h3>
+                                            <h3 class="box-title">Reply ticket</h3>
                                         </div>
                                     </div>
                                     <div class="chat-rbox">
@@ -106,23 +117,23 @@
                                                 <div class="chat-time">10:57 am</div>
                                             </li>
                                             <!--chat Row -->
-                                            <li class="reverse">
-                                                
-                                                <div class="chat-content">
-                                                    <h5>Steave Doe</h5>
-                                                    <div class="box bg-light-inverse">It’s Great opportunity to work.</div>
-                                                </div>
-                                                <div class="chat-img"><img src="assets/images/users/5.jpg" alt="user" /></div>
-                                                <div class="chat-time">10:57 am</div>
+                                            <li class="reverse">  
+                                             <div class="chat-content">
+                                              <h5>Steave Doe</h5>
+                                              <?php echo $selectReply;?>
+                                              </div>
+                                              <div class="chat-img"><img src="<?php echo $_SESSION['IMAGE']; ?>" alt="user" /></div>
+                                              <div class="chat-time">10:57 am</div> 
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="card-body b-t">
-                                        <form action="replies_action.php" method="post">
+                                        <form action="index.php?n=replies_action" method="post">
                                         <div class="row">
                                             <div class="col-8">
                                                 <input type="hidden" name="ticket_id" value="<?php echo $mid; ?>">
                                                 <input type="hidden" name="date" value="<?php echo $date; ?>">
+                                                <input type="hidden" name="supportAgents_id" value="<?php echo $_SESSION['ID']; ?>">
                                                 <textarea class="form-control" name="replies" rows="15" placeholder="Enter text ..."></textarea>
                                             </div>
                                             <div class="col-4 text-right">
