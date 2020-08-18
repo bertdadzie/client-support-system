@@ -36,19 +36,16 @@ $ticketNumber = rand(1000,9999);
                         <div class="card">
                             <div class="row">
                                 <div class="col-xlg-2 col-lg-3 col-md-4 ">
-                                    <div class="card-body inbox-panel"><a href="app-compose.html" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light">Compose</a>
-                                        <ul class="list-group list-group-full">
-                                            <li class="list-group-item active"> <a href="javascript:void(0)"><i class="mdi mdi-gmail"></i> Inbox </a><span class="badge badge-success ml-auto">6</span></li>
+                                    <div class="card-body inbox-panel">
+                                         <ul class="list-group list-group-full">
                                             <li class="list-group-item">
-                                                <a href="javascript:void(0)"> <i class="mdi mdi-star"></i> Starred </a>
+                                                <a href="index.php?n=ticket"> <i class="mdi mdi-star"></i> All Ticket </a>
                                             </li>
                                             <li class="list-group-item">
-                                                <a href="javascript:void(0)"> <i class="mdi mdi-send"></i> Draft </a><span class="badge badge-danger ml-auto">3</span></li>
-                                            <li class="list-group-item ">
-                                                <a href="javascript:void(0)"> <i class="mdi mdi-file-document-box"></i> Sent Mail </a>
+                                            <a href="index.php?n=support-team"> <i class="mdi mdi-account"></i> Support team</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <a href="javascript:void(0)"> <i class="mdi mdi-delete"></i> Trash </a>
+                                            <a href="index.php?n=feedbacks"> <i class="mdi mdi-comment"></i> Feedbacks</a>
                                             </li>
                                         </ul>
                                     </div>

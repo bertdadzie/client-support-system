@@ -8,6 +8,7 @@
     if(mysqli_num_rows($res)==1){
         session_start();
         $_SESSION['LOGEIN']='OK';
+        $_SESSION['CLIENT']='client';
         $_SESSION['ID'] = $data['supportAgents_id'];
         $_SESSION['FIRST-NAME'] = $data['first_name'];
         $_SESSION['LAST-NAME'] = $data['last_name'];

@@ -1,69 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-<!-- Mirrored from themedesigner.in/demo/admin-press/mini-sidebar/app-email.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Aug 2020 10:37:37 GMT -->
-<?php include'includes/head.php' ?>
-
-<body class="fix-header card-no-border">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <div id="main-wrapper">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-        <?php include('includes/navbar.php'); ?>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-       <aside class="left-sidebar">
-          <?php include('includes/sidebar.php'); ?>
-        </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor">Mailbox</h3>
-                </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item">Apps</li>
-                        <li class="breadcrumb-item active">mailbox</li>
-                    </ol>
-                </div>
-                <div class="">
-                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                
-                <!-- ============================================================== -->
+           <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <div class="row">
@@ -71,16 +6,16 @@
                         <div class="card">
                             <div class="row">
                                 <div class="col-xlg-2 col-lg-3 col-md-4">
-                                    <div class="card-body inbox-panel"><a href="add-support-agent.php" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light">Add Team member</a>
+                                    <div class="card-body inbox-panel"><a href="index.php?n=add-support-agent" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light">Add Team member</a>
                                          <ul class="list-group list-group-full">
                                             <li class="list-group-item">
-                                                <a href="ticket.php"> <i class="mdi mdi-star"></i> All Ticket </a>
+                                                <a href="index.php?n=ticket"> <i class="mdi mdi-star"></i> All Ticket </a>
                                             </li>
                                             <li class="list-group-item">
-                                            <a href="support-team.php"> <i class="mdi mdi-account"></i> Support team</a>
+                                            <a href="index.php?n=support-team"> <i class="mdi mdi-account"></i> Support team</a>
                                             </li>
                                             <li class="list-group-item">
-                                            <a href="feedbacks"> <i class="mdi mdi-comment"></i> Feedbacks</a>
+                                            <a href="index.php?n=feedbacks"> <i class="mdi mdi-comment"></i> Feedbacks</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -114,15 +49,15 @@
                                             echo"
                                             <tr>
                                                 <td>
-                                                    <a href='javascript:void(0)'><img src='$path' alt='user' class='img-circle' />".$data['first_name']." ".$data['last_name']."</a>
+                                                    <a href='index.php?n=profile&mid=$mid'><img src='$path' alt='user' class='img-circle' />".$data['first_name']." ".$data['last_name']."</a>
                                                 </td>
-                                                <td>".$data['email']."</td>
-                                                <td>".$data['phone_number']."</td>
+                                                <td><a href='index.php?n=profile&mid=$mid''>".$data['email']."</a></td>
+                                                <td><a href='index.php?n=profile&mid=$mid''>".$data['phone_number']."</a></td>
                                                 <td><span class='label label-inverse'>".$data['role1']."</span></td>
-                                                <td>".$data['department1']."</td>
-                                                <td>".$data['gender']."</td>
+                                                <td><a href='index.php?n=profile&mid=$mid''>".$data['department1']."</a></td>
+                                                <td><a href='index.php?n=profile&mid=$mid''>".$data['gender']."</a></td>
                                                 <td>
-                                                    <a href='profile.php?&mid=$mid' class='btn btn-sm btn-icon btn-pure btn-outline delete-row-btn' data-toggle='tooltip' data-original-title='Delete'><i class='ti-more' aria-hidden='true'></i></a>
+                                                    <a href='index.php?n=profile&mid=$mid' class='btn btn-sm btn-icon btn-pure btn-outline delete-row-btn' data-toggle='tooltip' data-original-title='Delete'><i class='ti-more' aria-hidden='true'></i></a>
                                                 </td>
                                             </tr>";  
                                                 }
@@ -156,22 +91,6 @@
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer">
-                © 2019 Admin Press Admin by themedesigner.in
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
     <!-- All Jquery -->

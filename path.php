@@ -1,7 +1,7 @@
 <?php
-$n =(isset($_GET['n'])) ? $_GET['n'] : 'home-n';
+$n =(isset($_GET['n'])) ? $_GET['n'] : 'home';
 switch ($n) {
-	case 'home-n':
+	case 'home':
 		$n_title = 'Home: Client Support';
 		$content_title = 'Client Support';
 		$content_path = 'n/home.php';
@@ -29,7 +29,7 @@ switch ($n) {
 	
 	//add-department////////////////////////////////////////////////////////////
 	case 'add-department':
-		$n_title = 'departmen: add department';
+		$n_title = 'department: add department';
 		$content_title = 'add department';
 		$content_path = 'n/add-department.php';
 		break;
@@ -38,6 +38,16 @@ switch ($n) {
 		$n_title = 'add-support-agent: Add Support Agent';
 		$content_title = 'Add Support Agent';
 		$content_path = 'n/add-support-agent.php';
+		break;
+	case 'support-team':
+		$n_title = 'support: Support Team';
+		$content_title = 'Support Team';
+		$content_path = 'n/support-team.php';
+		break;
+	case 'profile':
+		$n_title = 'profile';
+		$content_title = 'profile';
+		$content_path = 'n/profile.php';
 		break;
 	//reply////////////////////////////////////////////////////////////
 	case 'reply-ticket':
@@ -50,15 +60,16 @@ switch ($n) {
 		$content_title = 'replies action';
 		$content_path = 'n/replies_action.php';
 		break;
-	case 'all-brand':
-		$n_title = 'brand n : Membership Application';
-		$content_title = 'all brand';
-		$content_path = 'ns/all-brand.php';
+	//client////////////////////////////////////////////////////////////
+	case 'ticketActionclient':
+		$n_title = 'Client Support: Client Support';
+		$content_title = 'Client Support';
+		$content_path = 'n/ticketActionclient.php';
 		break;
-	case 'delete-brand':
-		$n_title = 'brand n : Membership Application';
-		$content_title = 'all brand';
-		$content_path = 'ns/delete-brand.php';
+	case 'response':
+		$n_title = 'Client Support';
+		$content_title = 'Client Support';
+		$content_path = 'n/response.php';
 		break;
 	case 'brandAction':
 		$n_title = 'brand n : Membership Application';

@@ -1,34 +1,4 @@
-<?php
-require('config/dbconfig.php');
-$supportagents = '';
-$query = "SELECT * FROM supportagents GROUP BY first_name ORDER BY first_name ASC";
-$result = mysqli_query($con, $query);
-while($row = mysqli_fetch_array($result))
-{
- $supportagents .= '<option value="'.$row["supportAgents_id"].'">'.$row["first_name"].' '.$row["last_name"].'</option>';
-}
-
-$dept_name = '';
-$query = "SELECT * FROM department GROUP BY dept_name ORDER BY dept_name ASC";
-$result = mysqli_query($con, $query);
-while($row = mysqli_fetch_array($result))
-{
- $dept_name .= '<option value="'.$row["dept_id"].'">'.$row["dept_name"].'</option>';
-}
-
-$priority = '';
-$query = "SELECT * FROM priority GROUP BY priority_name ORDER BY priority_name ASC";
-$result = mysqli_query($con, $query);
-while($row = mysqli_fetch_array($result))
-{
- $priority .= '<option value="'.$row["priority_id"].'">'.$row["priority_name"].'</option>';
-}
-
-$date= date("Y-m-d");
-$ticketNumber = rand(1000,9999); 
-?>
-
-                
+ 
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
@@ -81,36 +51,7 @@ $ticketNumber = rand(1000,9999);
                                 </div>
                                 <div class="col-xlg-6 col-lg-6 col-md-8 bg-light-part b-l">
                                     <div class="card-body">
-                                        <h3 class="card-title">Your Complaint</h3>
-                                        <form action="index.php?n=ticketActionclient" method="post" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <input class="form-control" name="first_name" placeholder="First Name:">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="form-control" name="last_name" placeholder="Last Name:">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="form-control" name="email" placeholder="Email:">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="form-control" name="phone" placeholder="Phone Number:">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="form-control" name="address" placeholder="Adress:">
-                                        </div>
-                                         <div class="form-group">
-                                            <input class="form-control" name="Subject" placeholder="Subject:">
-                                            <input type="hidden" name="ticket_number" value="<?php echo $ticketNumber; ?>">
-                                            <input type="hidden" name="ticket_date" value="<?php echo $date; ?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea class="form-control" name="ticket_description" rows="15" placeholder="Enter text ..."></textarea>
-                                        </div>
-                                        <div class="card">
-                                        
-                                      </div>
-                                        <button type="submit" class="btn btn-success m-t-20"><i class="fa fa-envelope-o"></i> Send</button>
-                                    </form>
+                                        <h3 class="card-title">Thanks for your email. We have received your email and will get back to you as soon as possible</h3>
                                     </div>
                                 </div>
                             </div>

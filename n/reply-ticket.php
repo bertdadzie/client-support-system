@@ -1,5 +1,6 @@
-<?php
+<?php 
     $mid = $_GET['mid'];
+    $midd = $_SESSION['ID'];
     $sql = "SELECT *, 
 (SELECT status_name FROM status p2 
     WHERE p1.status_id = p2.status_id) status1, 
@@ -16,13 +17,11 @@
 
 
 $selectReply = '';
-$query = "SELECT * FROM `ticket_replies`";
+$query = "SELECT * FROM `ticket_replies` where ticket_id=$mid and supportAgents_id = $midd";
 $result1 = mysqli_query($con, $query);
 $data = mysqli_fetch_assoc($result1);
  $selectReply .= '
-
   <div class="box bg-light-inverse">"'.$data["replies"].'"</div>
-  <div class="chat-time">10:57 am</div>
  ';
 ?>
 
@@ -36,16 +35,16 @@ $data = mysqli_fetch_assoc($result1);
                             <div class="row">
                                 <div class="col-xlg-2 col-lg-3 col-md-4">
                                     <div class="card-body inbox-panel">
-                                        <a href="add-ticket.php" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light">Add Ticket</a>
+                                        <a href="index.php?n=add-ticket" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light">Add Ticket</a>
                                         <ul class="list-group list-group-full">
                                             <li class="list-group-item">
-                                                <a href="ticket.php"> <i class="mdi mdi-star"></i> All Ticket </a>
+                                                <a href="index.php?n=ticket"> <i class="mdi mdi-star"></i> All Ticket </a>
                                             </li>
                                             <li class="list-group-item">
-                                            <a href="support-team.php"> <i class="mdi mdi-account"></i> Support team</a>
+                                            <a href="index.php?n=support-team"> <i class="mdi mdi-account"></i> Support team</a>
                                             </li>
                                             <li class="list-group-item">
-                                            <a href="feedbacks"> <i class="mdi mdi-comment"></i> Feedbacks</a>
+                                            <a href="index.php?n=feedbacks"> <i class="mdi mdi-comment"></i> Feedbacks</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -56,7 +55,7 @@ $data = mysqli_fetch_assoc($result1);
                                                 <a href="ticket.php">Created on: <span class="label label-info"> <?php echo $row['ticket_date']; ?></span> </a>
                                             </li>
                                             <li class="list-group-item">
-                                                <a href="ticket.php">last Replied: <span class="label label-info"> <?php echo $row['ticket_date']; ?></span> </a>
+                                                <a href="ticket.php">last Replied: <span class="label label-info"> <?php echo $data['date']; ?></span> </a>
                                             </li>
                                             <li class="list-group-item">
                                                 <a href="ticket.php">Priority: <span class="label label-info"> <?php echo $row['priority1']; ?></span> </a>
@@ -75,22 +74,6 @@ $data = mysqli_fetch_assoc($result1);
                                                     echo"<td><span class='label label-warning'>Open</span><a href='index.php?n=ticket'>Change</a></td>";
                                                 } ?>
                                                        
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card-body inbox-panel">
-                                        <ul class="list-group list-group-full">
-                                            <li class="list-group-item active"> <a href="javascript:void(0)">Update Ticket</a></li>
-                                            <li class="list-group-item">
-                                                <a href="#" data-toggle="modal" data-target="#add-contact"> <i class="mdi mdi-star"></i> Change Status</a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <a href="#" data-toggle="modal" data-target="#add-contact"> <i class="mdi mdi-send"></i> change priority </a><span class="badge badge-danger ml-auto">3</span></li>
-                                            <li class="list-group-item ">
-                                                <a href="javascript:void(0)"> <i class="mdi mdi-file-document-box"></i> Assign tickect </a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <a href="javascript:void(0)"> <i class="mdi mdi-delete"></i> Trash </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -119,16 +102,16 @@ $data = mysqli_fetch_assoc($result1);
                                             <!--chat Row -->
                                             <li class="reverse">  
                                              <div class="chat-content">
-                                              <h5>Steave Doe</h5>
+                                              <h5><?php echo $_SESSION['FIRST-NAME'].' '. $_SESSION['LAST-NAME'];?></h5>
                                               <?php echo $selectReply;?>
                                               </div>
                                               <div class="chat-img"><img src="<?php echo $_SESSION['IMAGE']; ?>" alt="user" /></div>
-                                              <div class="chat-time">10:57 am</div> 
+                                              <div class="chat-time"><?php echo $date; ?></div> 
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="card-body b-t">
-                                        <form action="index.php?n=replies_action" method="post">
+                                        <form action="index.php?n=replies_action&mid=$mid" method="post">
                                         <div class="row">
                                             <div class="col-8">
                                                 <input type="hidden" name="ticket_id" value="<?php echo $mid; ?>">

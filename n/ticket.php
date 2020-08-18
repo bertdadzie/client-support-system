@@ -1,20 +1,19 @@
-
-                <div class="row">
+      <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="row">
                                 <div class="col-xlg-2 col-lg-3 col-md-4">
                                     <div class="card-body inbox-panel">
-                                        <a href="add-ticket.php" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light">Add Ticket</a>
+                                        <a href="index.php?n=add-ticket" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light">Add Ticket</a>
                                         <ul class="list-group list-group-full">
                                             <li class="list-group-item">
-                                                <a href="ticket.php"> <i class="mdi mdi-star"></i> All Ticket </a>
+                                                <a href="index.php?n=ticket"> <i class="mdi mdi-star"></i> All Ticket </a>
                                             </li>
                                             <li class="list-group-item">
-                                            <a href="support-team.php"> <i class="mdi mdi-account"></i> Support team</a>
+                                            <a href="index.php?n=support-team"> <i class="mdi mdi-account"></i> Support team</a>
                                             </li>
                                             <li class="list-group-item">
-                                            <a href="feedbacks"> <i class="mdi mdi-comment"></i> Feedbacks</a>
+                                            <a href="index.php?n=feedbacks"> <i class="mdi mdi-comment"></i> Feedbacks</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -99,22 +98,22 @@
                                             <tr>
                                                 <td>".$data['ticket_number']."</td>
                                                 <td>
-                                                    <a href='javascript:void(0)'><img src='assets/images/users/1.jpg' alt='user' class='img-circle' />".$data['first_name']." ".$data['last_name']."</a>
+                                                    <a href='index.php?n=reply-ticket&mid=$mid'>".$data['first_name']." ".$data['last_name']."</a>
                                                 </td>
-                                                <td>".$data['email']."</td>
-                                                <td>".$data['Subject']."</td>";
+                                                <td><a href='index.php?n=reply-ticket&mid=$mid'>".$data['email']."</a></td>
+                                                <td><a href='index.php?n=reply-ticket&mid=$mid'>".$data['Subject']."</a></td>";
                                                 if($data['status_id'] == 0){
-                                                    echo "<td><span class='label label-inverse'>Pending</span></td>";
+                                                    echo "<td><a href='index.php?n=reply-ticket&mid=$mid'><span class='label label-inverse'>Pending</span></a></td>";
                                                 }
                                                 else if($data['status_id'] ==1) {
-                                                    echo"<td><span class='label label-success'>Solved</span></td>";
+                                                    echo"<td><a href='index.php?n=reply-ticket&mid=$mid'><span class='label label-success'>Solved</span></a></td>";
                                                 }
                                                 else if($data['status_id'] ==2) {
-                                                    echo"<td><span class='label label-warning'>Open</span></td>";
+                                                    echo"<td><a href='index.php?n=reply-ticket&mid=$mid'><span class='label label-warning'>Open</span></a></td>";
                                                 }
                                                                                             
                                                 echo"<td>Johnathon</td>
-                                                <td>".$data['ticket_date']."</td>
+                                                <td><a href='index.php?n=reply-ticket&mid=$mid'>".$data['ticket_date']."</a></td>
                                                 <td>
                                                     <a href='index.php?n=reply-ticket&mid=$mid' class='btn btn-sm btn-icon btn-pure btn-outline delete-row-btn' data-toggle='tooltip' data-original-title='Delete'><i class='ti-more' aria-hidden='true'></i></a>
                                                 </td>
