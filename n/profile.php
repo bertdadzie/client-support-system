@@ -24,6 +24,9 @@ include('session.php');
                                             <li class="list-group-item">
                                                 <a href="index.php?n=ticket"> <i class="mdi mdi-account"></i> <?php echo $_SESSION['FIRST-NAME'].' '. $_SESSION['LAST-NAME'];?></a>
                                             </li>
+                                            <li class="list-group-item">
+                                                <a href="index.php?n=ticket"> <i class="mdi mdi-account"></i> <?php echo $_SESSION['Gender']; ?></a>
+                                            </li>
                                         </ul>
                                        <hr>
                                     </div>
@@ -53,7 +56,7 @@ include('session.php');
                                         <div class="row">
                                             <div class="col-md-3 col-xs-6 b-r"> <strong>Mobile</strong>
                                                 <br>
-                                                <p class="text-muted"><?php echo $_SESSION['EMAIL']; ?></p>
+                                                <p class="text-muted"><?php echo $_SESSION['TELEPHONE']; ?></p>
                                             </div>
                                             <div class="col-md-3 col-xs-6 b-r"> <strong>Email</strong>
                                                 <br>
@@ -61,7 +64,7 @@ include('session.php');
                                             </div>
                                             <div class="col-md-3 col-xs-6 b-r"> <strong>Address</strong>
                                                 <br>
-                                                <p class="text-muted"><?php echo $_SESSION['EMAIL']; ?></p>
+                                                <p class="text-muted"><?php echo $_SESSION['Address']; ?></p>
                                             </div>
                                             <div class="col-md-3 col-xs-6"> <strong>Department</strong>
                                                 <br>
