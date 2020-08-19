@@ -128,6 +128,22 @@
         })
     });
     </script>
+    <script>
+  $("form").submit(function(e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: 'index.php?n=replies_action',
+      data: $('form').serialize(),
+      success: function() {
+        console.log("Signup was successful");
+      }, //You missed this
+      error: function() {
+        console.log("Signup was unsuccessful");
+      }
+    });
+  }); //You missed this
+</script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->

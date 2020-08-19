@@ -13,7 +13,7 @@
         $_SESSION['FIRST-NAME'] = $data['first_name'];
         $_SESSION['LAST-NAME'] = $data['last_name'];
         $_SESSION['IMAGE'] = $data['image'];
-        $_SESSION['TELEPHONE'] = $data['phone'];
+        $_SESSION['TELEPHONE'] = $data['phone_number'];
         $_SESSION['EMAIL'] = $data['email'];
         $_SESSION['Gender'] = $data['gender'];
         $_SESSION['Address'] = $data['address'];

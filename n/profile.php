@@ -1,5 +1,4 @@
 <?php
-include('session.php');
       include('sec.php');
     $mid = $_SESSION['ID'];
     $sql = "SELECT *, (SELECT role_name FROM role p2 WHERE p1.role_id = p2.role_id) role1, (SELECT dept_name FROM department p3 WHERE p1.dept_id = p3.dept_id) department1 FROM supportagents p1 where supportAgents_id =$mid";

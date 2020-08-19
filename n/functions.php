@@ -25,3 +25,18 @@
         $sql = "update $tbl set $set $where";
         return $sql;
     }
+
+    function Role()
+    {
+                $priority = '';
+        $query = "SELECT * FROM priority 
+        GROUP BY priority_name 
+        ORDER BY priority_name ASC";
+        $result = mysqli_query($con, $query);
+        while($row = mysqli_fetch_array($result))
+        {
+         $priority .= '
+         <option value="'.$row["priority_id"].'">'.$row["priority_name"].'</option>';
+     }
+
+    }
