@@ -84,28 +84,3 @@
                     </div>
                 </div>
             </div>
-
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <?php include('includes/js.php') ?>
-    <!-- This is data table -->
-    <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
-    
-    <!-- end - This is for export functionality only -->
-    <script>
-    $(document).ready(function() {
-        $('#ticket').DataTable({
-
-        });  
-    });
-
-    </script>
-</body>
-
-
-<!-- Mirrored from themedesigner.in/demo/admin-press/mini-sidebar/app-email.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Aug 2020 10:37:37 GMT -->
-</html>

@@ -56,7 +56,7 @@ switch ($n) {
 		$content_path = 'n/reply-ticket.php';
 		break;
 	case 'replies_action':
-		$n_title = 'replies: replies action';
+		$n_title = 'replies action';
 		$content_title = 'replies action';
 		$content_path = 'n/replies_action.php';
 		break;
@@ -71,97 +71,35 @@ switch ($n) {
 		$content_title = 'Client Support';
 		$content_path = 'n/response.php';
 		break;
-	case 'brandAction':
-		$n_title = 'brand n : Membership Application';
-		$content_title = 'all brand';
-		$content_path = 'ns/brandAction.php';
+	case 'update-status':
+		$n_title = 'update status';
+		$content_title = 'update status';
+		$content_path = 'n/update-status.php';
 		break;
-	case 'deleteBrandAction':
-		$n_title = 'Home n : Membership Application';
-		$content_title = 'view n';
-		$content_path = 'ns/deleteBrandAction.php';
+	case 'update-priority':
+		$n_title = 'update priority';
+		$content_title = 'update priority';
+		$content_path = 'n/update-priority.php';
 		break;
-	case 'allBrandAction':
-		$n_title = 'Home n : Membership Application';
-		$content_title = 'list Action n';
-		$content_path = 'ns/allBrandAction.php';
+	case 'update-department':
+		$n_title = 'update department';
+		$content_title = 'update department';
+		$content_path = 'n/update-department.php';
 		break;
-	//Product///////////////////////////////////////////////////////////////
-	case 'add-product':
-		$n_title = 'product n : Membership Application';
-		$content_title = 'add product';
-		$content_path = 'ns/add-product.php';
+	case 'fetch':
+		$n_title = 'fetch';
+		$content_title = 'fetch';
+		$content_path = 'n/fetch.php';
 		break;
-	case 'all-product':
-		$n_title = 'product n : Membership Application';
-		$content_title = 'all product';
-		$content_path = 'ns/all-product.php';
+	case 'feedbacks':
+		$n_title = 'feedbacks';
+		$content_title = 'feedbacks';
+		$content_path = 'n/feedbacks.php';
 		break;
-	case 'edit-product':
-		$n_title = 'product n : Membership Application';
-		$content_title = 'edit product';
-		$content_path = 'ns/edit-product.php';
-		break;
-	case 'productAction':
-		$n_title = 'product n : Membership Application';
-		$content_title = 'edit product';
-		$content_path = 'ns/productAction.php';
-		break;
-	case 'edit-productAction':
-		$n_title = 'product n : Membership Application';
-		$content_title = 'edit product';
-		$content_path = 'ns/edit-productAction.php';
-		break;
-	case 'delete-product':
-		$n_title = 'product n : Membership Application';
-		$content_title = 'all product';
-		$content_path = 'ns/delete-product.php';
-		break;
-	case 'deleteproductAction':
-		$n_title = 'Home n : Membership Application';
-		$content_title = 'view n';
-		$content_path = 'ns/deleteproductAction.php';
-		break;
-	case 'allproductAction':
-		$n_title = 'Home n : Membership Application';
-		$content_title = 'list Action n';
-		$content_path = 'ns/allproductAction.php';
-		break;
-	//Payment Plan///////////////////////////////////////////////////////////////
-	case 'add-payment-plan':
-		$n_title = 'payment-plan n : Membership Application';
-		$content_title = 'add payment-plan';
-		$content_path = 'ns/add-payment-plan.php';
-		break;
-	case 'all-payment-plan':
-		$n_title = 'payment-plan n : Membership Application';
-		$content_title = 'all payment-plan';
-		$content_path = 'ns/all-payment-plan.php';
-		break;
-	case 'edit-payment-plan':
-		$n_title = 'payment-plan n : Membership Application';
-		$content_title = 'edit payment-plan';
-		$content_path = 'ns/edit-payment-plan.php';
-		break;
-	case 'edit-payment-planAction':
-		$n_title = 'payment-plan n : Membership Application';
-		$content_title = 'edit payment-plan';
-		$content_path = 'ns/edit-payment-planAction.php';
-		break;
-	case 'delete-payment-plan':
-		$n_title = 'payment-plan n : Membership Application';
-		$content_title = 'all payment-plan';
-		$content_path = 'ns/delete-payment-plan.php';
-		break;
-	case 'deletepayment-planAction':
-		$n_title = 'Home n : Membership Application';
-		$content_title = 'view n';
-		$content_path = 'ns/deletepayment-planAction.php';
-		break;
-	case 'allpayment-planAction':
-		$n_title = 'Home n : Membership Application';
-		$content_title = 'list Action n';
-		$content_path = 'ns/allpayment-planAction.php';
+	case 'a':
+		$n_title = 'a';
+		$content_title = 'a';
+		$content_path = 'n/a.php';
 		break;
 }
 

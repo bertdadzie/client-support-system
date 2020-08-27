@@ -62,7 +62,6 @@ $output.= '
 
 $emailStructure = imap_fetchstructure($inbox,$mail);
 
-
 if(!isset($emailStructure->parts)) {
 $output .= imap_body($inbox, $mail, FT_PEEK);
 } else {

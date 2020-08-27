@@ -78,6 +78,8 @@
     <!-- ============================================================== -->
      <?php include('includes/js.php') ?>
     <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    
+    <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
 
     <script>
     $(document).ready(function() {
@@ -128,22 +130,18 @@
         })
     });
     </script>
+    
+    <!-- end - This is for export functionality only -->
     <script>
-  $("form").submit(function(e) {
-    e.preventDefault();
-    $.ajax({
-      type: 'POST',
-      url: 'index.php?n=replies_action',
-      data: $('form').serialize(),
-      success: function() {
-        console.log("Signup was successful");
-      }, //You missed this
-      error: function() {
-        console.log("Signup was unsuccessful");
-      }
+    $(document).ready(function() {
+        $('#ticket').DataTable({
+
+        });  
     });
-  }); //You missed this
-</script>
+
+    </script>
+    
+    
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->

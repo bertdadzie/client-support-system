@@ -9,28 +9,12 @@
                                 <li><a href="index.php?n=add-ticket">Add Ticket</a></li>
                             </ul>
                         </li>
-                         <li> <a class="has-arrow waves-effect waves-dark" href="Settings.php" aria-expanded="false"><i class="mdi mdi-settings"></i><span class="hide-menu">Settings</span></a>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="Settings.php" aria-expanded="false"><i class="mdi mdi-settings"></i><span class="hide-menu">Settings</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li> <a class="has-arrow" href="#" aria-expanded="false">Department</a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="index.php?n=add-department">Add Department</a></li>
-                                        <li><a href="#">Department</a></li>
-                                    </ul>
-                                </li>
-                                <li> <a class="has-arrow" href="#" aria-expanded="false">Support Agent</a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="index.php?n=add-support-agent">Add Agents</a></li>
-                                        <li><a href="#">Agents</a></li>
-                                    </ul>
-                                </li>
-                                <li> <a class="has-arrow" href="#" aria-expanded="false">FAGS</a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="#">Add Faqs</a></li>
-                                        <li><a href="#">Faqs</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Add Priority</a></li>
-                                <li><a href="#">Add Status</a></li>
+                                <li><a href="index.php?n=add-department">Department</a></li>
+                                <li><a href="index.php?n=add-support-agent">Support Ticket</a></li>
+                                <li><a href="index.php?n=faqs">Add Faqs</a></li>
+                                <li><a href="index.php?n=priority">Add Priority</a></li>
                             </ul>
                         </li>
                     </ul>

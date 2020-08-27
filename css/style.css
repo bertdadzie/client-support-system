@@ -638,6 +638,10 @@ html body .bg-white {
     background-color: #26dad2
 }
 
+.label-priority {
+    background-color: #1976d2
+}
+
 .label-info {
     background-color: #1976d2
 }
@@ -711,6 +715,9 @@ html body .bg-white {
 .label-light-inverse {
     background-color: #f6f6f6;
     color: #2f3d4a
+}
+.priority{
+ border: none;
 }
 
 .pagination>li:first-child>a, .pagination>li:first-child>span {

@@ -1,4 +1,4 @@
-<script src="assets/plugins/jquery/jquery.min.js"></script>
+    <script src="assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="assets/plugins/bootstrap/js/popper.min.html"></script>
 
@@ -39,3 +39,4 @@
     <!-- ============================================================== -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+    <script src="js/ajax.js"></script>

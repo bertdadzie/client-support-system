@@ -7,7 +7,7 @@
                                         <a href="index.php?n=add-ticket" class="btn btn-danger m-b-20 p-10 btn-block waves-effect waves-light">Add Ticket</a>
                                         <ul class="list-group list-group-full">
                                             <li class="list-group-item">
-                                                <a href="index.php?n=ticket"> <i class="mdi mdi-star"></i> All Ticket </a>
+                                                <a href="index.php?n=ticket"> <i class="mdi mdi-email"></i> All Ticket </a>
                                             </li>
                                             <li class="list-group-item">
                                             <a href="index.php?n=support-team"> <i class="mdi mdi-account"></i> Support team</a>
@@ -80,7 +80,6 @@
                                                 <th>Client Email</th>
                                                 <th>Sbuject</th>
                                                 <th>Status</th>
-                                                <th>Assign to</th>
                                                 <th>Date</th>
                                                 <th>Action</th>
                                             </tr>
@@ -105,14 +104,14 @@
                                                 if($data['status_id'] == 0){
                                                     echo "<td><a href='index.php?n=reply-ticket&mid=$mid'><span class='label label-inverse'>Pending</span></a></td>";
                                                 }
-                                                else if($data['status_id'] ==1) {
+                                                else if($data['status_id'] ==4) {
                                                     echo"<td><a href='index.php?n=reply-ticket&mid=$mid'><span class='label label-success'>Solved</span></a></td>";
                                                 }
-                                                else if($data['status_id'] ==2) {
+                                                else if($data['status_id'] ==1) {
                                                     echo"<td><a href='index.php?n=reply-ticket&mid=$mid'><span class='label label-warning'>Open</span></a></td>";
                                                 }
                                                                                             
-                                                echo"<td>Johnathon</td>
+                                                echo"
                                                 <td><a href='index.php?n=reply-ticket&mid=$mid'>".$data['ticket_date']."</a></td>
                                                 <td>
                                                     <a href='index.php?n=reply-ticket&mid=$mid' class='btn btn-sm btn-icon btn-pure btn-outline delete-row-btn' data-toggle='tooltip' data-original-title='Delete'><i class='ti-more' aria-hidden='true'></i></a>
@@ -133,13 +132,6 @@
                                     </table>
                                 </div>
                             </div>
-                  
-
-
-
-
-
-
                                 </div>
                             </div>
                         </div>
