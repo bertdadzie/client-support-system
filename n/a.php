@@ -29,7 +29,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Support Ticket List</h4>
                                 <div class="table-responsive">
-                                    <table id="ticket" class="table m-t-30 table-hover no-wrap contact-list b-all shadow-none" data-page-size="10">
+                                    <table id="ticket" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
                                         <thead>
                                             <tr>
                                                 <th>Ticket #</th>
@@ -97,5 +97,4 @@
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
-            
     

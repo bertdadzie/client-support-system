@@ -10,8 +10,7 @@
     	echo $id;
     	//echo "<br>";
     }else{
-    	header('location: login.php?error=1');
-    	//echo "Your ticket does not correspond any ticket";
+    	echo "Your ticket does not correspond any ticket";
     }
 
 

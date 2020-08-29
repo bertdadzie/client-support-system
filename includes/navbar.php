@@ -58,11 +58,11 @@
                                             <div class="u-img"><img src="<?php echo $_SESSION['IMAGE']; ?>" alt="user"></div>
                                             <div class="u-text">
                                                 <h4><?php echo $_SESSION['FIRST-NAME'].' '. $_SESSION['LAST-NAME'];?></h4>
-                                                <p class="text-muted"><?php echo $_SESSION['EMAIL']; ?></p><a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                                <p class="text-muted"><?php echo $_SESSION['EMAIL']; ?></p><a href="index.php?n=profile" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                                    <li><a href="index.php?n=account-setting"><i class="ti-settings"></i> Account Setting</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>

@@ -1,12 +1,21 @@
 <?php // The location of the PDF file 
-// on the server 
-$filename = "/file/pdf.pdf"; 
-  
+$file = 'yes.pdf';  
 // Header content type 
-header("Content-type: application/pdf"); 
+header('Content-type: application/pdf'); 
   
-header("Content-Length: " . filesize($filename)); 
+header('Content-Transfer-Encoding: binary'); 
   
-// Send the file to the browser. 
-readfile($filename); 
+header('Accept-Ranges: bytes'); 
+  
+// Read the file 
+@readfile($file); 
 ?>   
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<a href=""></a>
+</body>
+</html>

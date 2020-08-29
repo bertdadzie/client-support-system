@@ -77,8 +77,7 @@
     <!-- All Jquery -->
     <!-- ============================================================== -->
      <?php include('includes/js.php') ?>
-    <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
-    
+     <script src="assets/plugins/dropify/dist/js/dropify.min.js"></script>
     <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
 
     <script>
@@ -136,7 +135,10 @@
     $(document).ready(function() {
         $('#ticket').DataTable({
 
-        });  
+        }); 
+        $('#support').DataTable({
+
+        });   
     });
 
     </script>

@@ -66,10 +66,10 @@ switch ($n) {
 		$content_title = 'Client Support';
 		$content_path = 'n/ticketActionclient.php';
 		break;
-	case 'response':
+	case 'Client-support-ps.php':
 		$n_title = 'Client Support';
 		$content_title = 'Client Support';
-		$content_path = 'n/response.php';
+		$content_path = 'n/Client-support-ps.php';
 		break;
 	case 'update-status':
 		$n_title = 'update status';
@@ -95,6 +95,21 @@ switch ($n) {
 		$n_title = 'feedbacks';
 		$content_title = 'feedbacks';
 		$content_path = 'n/feedbacks.php';
+		break;
+	case 'account-setting':
+		$n_title = 'Account setting';
+		$content_title = 'Account setting';
+		$content_path = 'n/account-setting.php';
+		break;
+	case 'account-setting-action':
+		$n_title = 'account-setting';
+		$content_title = 'account-setting';
+		$content_path = 'n/account-setting-action.php';
+		break;
+	case 'ticket-academics':
+		$n_title = 'ticket-academics';
+		$content_title = 'ticket-academics';
+		$content_path = 'n/ticket-academics.php';
 		break;
 	case 'a':
 		$n_title = 'a';

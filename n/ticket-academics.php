@@ -29,7 +29,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Support Ticket List</h4>
                                 <div class="table-responsive">
-                                    <table id="ticket" class="table m-t-30 table-hover no-wrap contact-list b-all shadow-none" data-page-size="10">
+                                    <table id="ticket" class="table m-t-30 table-hover no-wrap contact-list" data-page-size="10">
                                         <thead>
                                             <tr>
                                                 <th>Ticket #</th>
@@ -44,7 +44,7 @@
                                         <tbody>
 
                                              <?php
-                            $sql = "select * from ticket";
+                            $sql = "select * from ticket where dept_id=3";
                             require('config/dbconfig.php');
                             $result = mysqli_query($con, $sql);
                             while($data = mysqli_fetch_assoc($result)){
@@ -97,5 +97,5 @@
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
-            
+
     
