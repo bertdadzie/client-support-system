@@ -19,7 +19,7 @@ switch ($n) {
 		break;
 	case 'ticketAction':
 		$n_title = 'ticket n : Membership Application';
-		$content_title = 'edit n';
+		$content_title = 'ticketAction';
 		$content_path = 'n/ticketAction.php';
 		break;
 	case 'edit-ticketAction':

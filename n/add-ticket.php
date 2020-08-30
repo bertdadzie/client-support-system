@@ -25,6 +25,7 @@ while($row = mysqli_fetch_array($result))
 }
 
 $date= date("Y-m-d");
+date("h:i:sa")
 $ticketNumber = rand(1000,9999); 
 ?>
                 

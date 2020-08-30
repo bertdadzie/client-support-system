@@ -26,7 +26,8 @@ if (empty($_POST["ticket_description"])) {
     $ticket_description.= "<p>Fill can not be empty</p>".'';
 }
 
-
+if(empty($first_name) && empty($last_name) && empty($email) && empty($phone) && empty($address)
+ && empty($Subject) && empty($ticket_description) ){
 require('n/functions.php');
 $query= addRecord($_POST,'ticket');
 require('config/dbconfig.php');
@@ -34,6 +35,7 @@ $result = mysqli_query($con,$query);
 if($result){
     $output .= "<p class='alert alert-info'>Thanks for your email. We have received your email and will get back to you as soon as possible</p>".'';
    // header('location: index.php?page=all-brand');
+}
 }
 
 }

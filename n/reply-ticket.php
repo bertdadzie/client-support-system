@@ -1,33 +1,7 @@
 <?php 
-    $mid = $_GET['mid'];
-    $midd = $_SESSION['ID'];
-    $sql = "SELECT *, 
-(SELECT status_name FROM status p2 
-    WHERE p1.status_id = p2.status_id) status1, 
-(SELECT priority_name FROM priority p3 
-    WHERE p1.priority_id = p3.priority_id) priority1, 
-(SELECT dept_name FROM department p4 
-    WHERE p1.dept_id = p4.dept_id) department1
-        FROM ticket p1 where ticket_id=$mid";
-    require('config/dbconfig.php');
-    $result = mysqli_query($con, $sql);
-    $row = mysqli_fetch_assoc($result);
-
-    $date= date("Y-m-d");
-
-
-$selectReply = '';
-$query = "SELECT *, (SELECT first_name FROM `supportagents` p2 WHERE p1.supportAgents_id = p2.supportAgents_id) supportagent1, (SELECT last_name FROM `supportagents` p2 WHERE p1.supportAgents_id = p2.supportAgents_id) supportagent2, (SELECT image FROM `supportagents` p2 WHERE p1.supportAgents_id = p2.supportAgents_id) supportagent3 FROM ticket_replies p1 where ticket_id=$mid";
-$result1 = mysqli_query($con, $query);
-$data = mysqli_fetch_assoc($result1);
- $selectReply .= '
-  <div class="box bg-light-inverse">"'.$data["replies"].'"</div>
- ';
-
-
-  $sql = "SELECT *, (SELECT first_name FROM `supportagents` p2 WHERE p1.supportAgents_id = p2.supportAgents_id) first_name, (SELECT last_name FROM `supportagents` p2 WHERE p1.supportAgents_id = p2.supportAgents_id) supportagent2, (SELECT image FROM `supportagents` p2 WHERE p1.supportAgents_id = p2.supportAgents_id) image FROM ticket_replies p1  where ticket_id = $mid";
-    require('config/dbconfig.php');
-    $replyResult = mysqli_query($con, $sql);
+require('config/dbconfig.php');
+require('functions.php');
+require('variables.php');
 ?>
 
                 
@@ -100,7 +74,7 @@ $data = mysqli_fetch_assoc($result1);
                                                     <h5><?php echo $row['first_name']." ".$row['last_name']; ?></h5>
                                                     <div class="box bg-light-info"><?php echo $row['ticket_description']; ?></div>
                                                 </div>
-                                                <div class="chat-time">10:57 am</div>
+                                                <div class="chat-time"><?php echo $row['ticket_date']; ?></div>
                                             </li>
                                         <?php   while($datReply = mysqli_fetch_assoc($replyResult)){
                                              echo'
@@ -140,9 +114,7 @@ $data = mysqli_fetch_assoc($result1);
             </div>
 
                                     <?php  $priority = '';
-                                    $query = "SELECT * FROM priority GROUP BY priority_name ORDER BY priority_name ASC";
-                                    $result = mysqli_query($con, $query);
-                                    while($priorityrow = mysqli_fetch_array($result))
+                                    while($priorityrow = mysqli_fetch_array($resultPriority))
                                     {
                                      $priority .= '<option value="'.$priorityrow["priority_id"].'">'.$priorityrow["priority_name"].'</option>';
                                     }?>
@@ -179,10 +151,8 @@ $data = mysqli_fetch_assoc($result1);
 
 
 
-                                                                            <?php $dept_name = '';
-                                    $query = "SELECT * FROM department GROUP BY dept_name ORDER BY dept_name ASC";
-                                    $result = mysqli_query($con, $query);
-                                    while($row = mysqli_fetch_array($result))
+                                     <?php $dept_name = '';
+                                    while($row = mysqli_fetch_array($resultDepartment))
                                     {
                                      $dept_name .= '<option value="'.$row["dept_id"].'">'.$row["dept_name"].'</option>';
                                     }?>
@@ -219,9 +189,7 @@ $data = mysqli_fetch_assoc($result1);
 
 
                                         <?php $status_name = '';
-                                    $query = "SELECT * FROM status GROUP BY status_name ORDER BY status_name ASC";
-                                    $result = mysqli_query($con, $query);
-                                    while($row = mysqli_fetch_array($result))
+                                    while($row = mysqli_fetch_array($resultStatus))
                                     {
                                      $status_name .= '<option value="'.$row["status_id"].'">'.$row["status_name"].'</option>';
                                     }?>
