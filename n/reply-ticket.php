@@ -76,29 +76,39 @@ require('variables.php');
                                                 </div>
                                                 <div class="chat-time"><?php echo $row['ticket_date']; ?></div>
                                             </li>
+                                            
                                         <?php   while($datReply = mysqli_fetch_assoc($replyResult)){
-                                             echo'
+                                             echo'<div class="b-all m-b-20 p-10">
                                                 <li class="reverse">  
                                                    <div class="chat-content">
-                                                     <h5>"'.$datReply["first_name"].'"</h5>
-                                                    <div class="box bg-light-inverse">"'.$datReply["replies"].'"</div>
+                                                     <h5>'.$datReply["first_name"].'</h5>
+                                                    <div class="box bg-light-inverse">'.$datReply["replies"].'</div>
                                                     </div>
-                                                    <div class="chat-img"><img src="'.$datReply["image"].'" alt="user" /></div>
-                                                    <div class="chat-time">"'.$datReply["date"].'"</div> 
-                                                </li>';
+                                                    <div class="chat-img"><img src="'.$datReply["image"].'"alt="user" /></div>
+                                                    <div class="chat-time">'.$datReply["date"].'</div> 
+                                                </li></div>';
                                              }?>
+                                         
                                         </ul>
                                     </div>
                                     <div class="card-body b-t">
                                         <form method="post" action="index.php?n=replies_action">
                                         <div class="row">
-                                            <div class="col-8">
+                                            <div class="col-6">
                                                 <input type="hidden" name="ticket_id"  value="<?php echo $mid; ?>">
                                                 <input type="hidden" name="date"  value="<?php echo $date; ?>">
                                                 <input type="hidden" name="supportAgents_id"  value="<?php echo $_SESSION['ID']; ?>">
-                                                <textarea class="form-control" name="replies"  rows="15" placeholder="Enter text ..."></textarea>
+                                                <textarea class="form-control" style="height: 100px;" name="replies"  rows="15" placeholder="Enter text ..."></textarea>
                                             </div>
-                                            <div class="col-4 text-right">
+                                            <div class="col-2">
+                                                <input type="file" name="attachment[]"  value="<?php echo $mid; ?>">
+                                            </div>
+                                            <div class="col-2 text-right">
+                                                <input type="checkbox"  name="Allow_feedback" value="yes" id="minimal-checkbox-1">
+                                                <label for="minimal-checkbox-1">Allow client Feedback</label>
+                                            </div>
+
+                                            <div class="col-2 text-right">
                                                 <button type="submit" class="btn btn-info btn-circle btn-lg"><i class="fa fa-paper-plane-o"></i> </button>
                                             </div>
                                         </div>

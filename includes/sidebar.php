@@ -17,8 +17,8 @@
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="index.php?n=add-department">Department</a></li>
                                 <li><a href="index.php?n=add-support-agent">Support Ticket</a></li>
-                                <li><a href="index.php?n=faqs">Add Faqs</a></li>
-                                <li><a href="index.php?n=priority">Add Priority</a></li>
+                                <li><a href="index.php?n=add-faqs">Add Faqs</a></li>
+                                <li><a href="index.php?n=add-priority">Add Priority</a></li>
                             </ul>
                         </li>
                          ';

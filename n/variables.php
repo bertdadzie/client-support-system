@@ -5,7 +5,7 @@ $sql = selectTicket($mid);
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_assoc($result);
 
-$date= date("Y-m-d");
+$date= date("Y-m-d h:i:sa");
 
 $sql = selectReply($mid);
 $replyResult = mysqli_query($con, $sql);

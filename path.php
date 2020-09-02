@@ -111,6 +111,16 @@ switch ($n) {
 		$content_title = 'ticket-academics';
 		$content_path = 'n/ticket-academics.php';
 		break;
+	case 'deptation':
+		$n_title = 'deptation';
+		$content_title = 'deptation';
+		$content_path = 'n/deptation.php';
+		break;
+	case 'priorityation':
+		$n_title = 'priorityation';
+		$content_title = 'priorityation';
+		$content_path = 'n/priorityation.php';
+		break;
 	case 'a':
 		$n_title = 'a';
 		$content_title = 'a';

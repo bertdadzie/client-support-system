@@ -1,22 +1,3 @@
-<?php 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-require('functions.php');
-$query= addRecord($_POST,'priority');
-require('config/dbconfig.php');
-$result = mysqli_query($con,$query);
-if($result){
-    echo'successful';
-   // header('location: index.php?page=all-brand');
-}else{
-    //header('location: index.php?page=add-brand');
-     //echo mysqli_error($con);
-}
-}
-?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,7 +69,7 @@ if($result){
                 <div class="login-register">
                     <div class="login-box card">
                         <div class="card-body">
-                            <form class="form-horizontal form-material" id="loginform" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                            <form class="form-horizontal form-material" id="loginform" action="index.php?n=priorityation" method="post">
 
                                 <div class="form-group ">
                                     <div class="col-xs-12">

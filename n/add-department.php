@@ -1,18 +1,3 @@
-<?php 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-require('functions.php');
-$query= addRecord($_POST,'department');
-require('config/dbconfig.php');
-$result = mysqli_query($con,$query);
-if($result){
-    echo'successful';
-   // header('location: index.php?page=all-brand');
-}else{
-    //header('location: index.php?page=add-brand');
-     //echo mysqli_error($con);
-}
-}
-?>
 
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
@@ -20,7 +5,7 @@ if($result){
                 <div class="login-register">
                     <div class="login-box card">
                         <div class="card-body">
-                            <form class="form-horizontal form-material" id="loginform" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                            <form class="form-horizontal form-material" id="loginform" action="index.php?n=deptation" method="post">
                                 <div class="form-group ">
                                     <div class="col-xs-12">
                                         <input class="form-control" type="text" name="dept_name"  placeholder="Department Name"> </div>

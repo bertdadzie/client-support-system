@@ -1,11 +1,11 @@
 <?php
 require('config/dbconfig.php');
-$supportagents = '';
-$query = "SELECT * FROM supportagents GROUP BY first_name ORDER BY first_name ASC";
+$status_name = '';
+$query = "SELECT * FROM status GROUP BY status_name ORDER BY status_name ASC";
 $result = mysqli_query($con, $query);
 while($row = mysqli_fetch_array($result))
 {
- $supportagents .= '<option value="'.$row["supportAgents_id"].'">'.$row["first_name"].' '.$row["last_name"].'</option>';
+ $status_name .= '<option value="'.$row["status_name"].'">'.$row["status_name"].'</option>';
 }
 
 $dept_name = '';
@@ -25,14 +25,13 @@ while($row = mysqli_fetch_array($result))
 }
 
 $date= date("Y-m-d");
-date("h:i:sa")
 $ticketNumber = rand(1000,9999); 
 ?>
                 
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="row">
+               <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="row">
@@ -77,16 +76,9 @@ $ticketNumber = rand(1000,9999);
                                         </div>
                                         <div class="form-group">
                                             <div class="btn btn-inverse m-t-20">
-                                        <select class="select2 form-control custom-select" name="support_id" style="width: 100%; height:36px;">
+                                        <select class="select2 form-control custom-select" name="dept_id" style="width: 100%; height:36px;">
                                     <option selected disabled value="">Department</option>
                                      <?php echo $dept_name;?>
-                                            </select> 
-                                        </div>
-
-                                        <div class="btn btn-inverse m-t-20">
-                                        <select class="select2 form-control custom-select" name="dept_id" style="width: 100%; height:36px;">
-                                    <option selected disabled value="">Assign Agents</option>
-                                     <?php echo  $supportagents;?>
                                             </select> 
                                         </div>
 
@@ -96,17 +88,18 @@ $ticketNumber = rand(1000,9999);
                                      <?php echo  $priority;?>
                                             </select> 
                                         </div>
+                                        <div class="btn btn-inverse m-t-20">
+                                        <select class="select2 form-control custom-select" name="status_name_id" style="width: 100%; height:36px;">
+                                     <option selected disabled value="">Status</option>
+                                     <?php echo  $status_name;?>
+                                            </select> 
+                                        </div>
                                         </div>
 
                                         <div class="form-group">
                                             <textarea class="form-control" name="ticket_description" rows="15" placeholder="Enter text ..."></textarea>
                                         </div>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <label for="input-file-now-custom-1">Attachment</label>
-                                                <input type="file" id="input-file-now-custom-1" class="dropify" name="attachment" data-default-file="assets/plugins/dropify/src/images/test.jpg" />
-                                            </div>
-                                      </div>
+                                     
                                         <button type="submit" class="btn btn-success m-t-20"><i class="fa fa-envelope-o"></i> Send</button>
                                     </form>
                                     </div>
@@ -115,6 +108,3 @@ $ticketNumber = rand(1000,9999);
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Page Content -->
-                <!-- ============================================================== -->

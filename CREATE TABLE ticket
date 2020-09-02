@@ -1,0 +1,44 @@
+CREATE TABLE ticket
+( ticket_id INT(11) NOT NULL AUTO_INCREMENT,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  Subject VARCHAR(50),
+ email VARCHAR(50),
+ phone VARCHAR(50),
+ address VARCHAR(50),
+ ticket_number VARCHAR(50),
+ ticket_date VARCHAR(50),
+ ticket_number VARCHAR(50),
+  status_id int(11),
+  priority_id int(11),
+  dept_id int(11),
+  ticket_description VARCHAR(255),
+  CONSTRAINT ticket_pk PRIMARY KEY (ticket_id)
+);
+
+
+CREATE TABLE supportagents
+( supportAgents_id INT(11) NOT NULL AUTO_INCREMENT,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  phone_number VARCHAR(50),
+ phone_number VARCHAR(50),
+ email VARCHAR(50),
+ password VARCHAR(50),
+ address VARCHAR(50),
+ role_id int(11),
+ dept_id int(11),
+ gender VARCHAR(50),
+ image VARCHAR(50),
+  CONSTRAINT supportAgents_pk PRIMARY KEY (supportAgents_id)
+);
+
+
+CREATE TABLE supportagents
+( replies_id INT(11) NOT NULL AUTO_INCREMENT,
+  replies VARCHAR(255),
+  ticket_id int(11),
+  date date,
+ supportAgents_id int(11),
+  CONSTRAINT replies_pk PRIMARY KEY (replies_id)
+);

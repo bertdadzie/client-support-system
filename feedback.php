@@ -20,6 +20,8 @@ $row = mysqli_fetch_assoc($result);
 $ticketNumber= $row['ticketNumber'];
 
 if ($ticketNumber ==$id) {
+
+if(empty($feedback) && empty($userExperience) && empty($ticket_id)){
 require('n/functions.php');
 $query= addRecord($_POST,'feedback');
 require('config/dbconfig.php');
@@ -28,7 +30,7 @@ if($result){
     $output .= "<p class='alert alert-info'>Thanks For Your feedback</p>".'';
    // header('location: index.php?page=all-brand');
 }
-
+}
 
 }else{
         $output .= "<p class='alert alert-info'>Your ticket does not correspond any ticket</p>".'';
