@@ -1,41 +1,10 @@
 <?php 
-$output ='';
-$ticket_id = $feedback = $userExperience ='';
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-if (empty($_POST["feedback"])) {
-    $feedback.= "<p>Fill can not be empty</p>".'';
-}
-if (empty($_POST["userExperience"])) {
-    $userExperience.= "<p>Fill can not be empty</p>".'';
-}
-if (empty($_POST["ticket_id"])) {
-    $ticket_id.= "<p>Fill can not be empty</p>".'';
-}
-
-$id = $_POST['ticket_id'];
-$sql = "SELECT *,(SELECT ticket_number FROM `ticket` p2 WHERE p1.ticket_id = p2.ticket_id) ticketNumber, (SELECT email FROM `ticket` p2 WHERE p1.ticket_id = p2.ticket_id) email FROM ticket_replies p1";
+$replies_id=$_GET['id']; 
+$sql = "SELECT *,(SELECT first_name FROM `ticket` p2 WHERE p1.ticket_id = p2.ticket_id) name, (SELECT email FROM `ticket` p2 WHERE p1.ticket_id = p2.ticket_id) email FROM ticket_replies p1 where replies_id =$replies_id";
 require('config/dbconfig.php');
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_assoc($result);
-$ticketNumber= $row['ticketNumber'];
-
-if ($ticketNumber ==$id) {
-
-if(empty($feedback) && empty($userExperience) && empty($ticket_id)){
-require('n/functions.php');
-$query= addRecord($_POST,'feedback');
-require('config/dbconfig.php');
-$result = mysqli_query($con,$query);
-if($result){
-    $output .= "<p class='alert alert-info'>Thanks For Your feedback</p>".'';
-   // header('location: index.php?page=all-brand');
-}
-}
-
-}else{
-        $output .= "<p class='alert alert-info'>Your ticket does not correspond any ticket</p>".'';
-}
-}
+$name=$row['name'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,39 +53,34 @@ if($result){
         <div class="login-register">
             <div class="login-box card">
                 <div class="card-body">
-                 <?php echo $output; ?>
-                    <form class="form-horizontal form-material" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <form class="form-horizontal form-material" action="feedbackp.php" method="post">
                                 <div class="form-group ">
                                     <div class="col-xs-12">
-                                       <label for="inputPassword4">How do you rate your overall experience?</label><br>
+                                       <label for="inputPassword4">Hi <?php echo $name;?> how do you rate your overall experience?
+                                       </label><br>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" id="inlineCheckbox1" value="Bad" name="userExperience">
+                                            <input class="form-check-input" type="radio" id="inlineCheckbox1" value="Bad" name="rate">
                                             <label class="form-check-label" for="inlineCheckbox1">Bad</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" id="inlineCheckbox2" value="Average" name="userExperience">
+                                            <input class="form-check-input" type="radio" id="inlineCheckbox2" value="Average" name="rate">
                                             <label class="form-check-label" for="inlineCheckbox2">Average</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" id="inlineCheckbox3" value="Good" name="userExperience">
+                                            <input class="form-check-input" type="radio" id="inlineCheckbox3" value="Good" name="rate">
                                             <label class="form-check-label" for="inlineCheckbox3">Good</label>
                                         </div> 
                                          <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" id="inlineCheckbox4" value="Good" name="userExperience">
+                                            <input class="form-check-input" type="radio" id="inlineCheckbox4" value="Good" name="rate">
                                             <label class="form-check-label" for="inlineCheckbox4">Excellent</label>
+                                            <input type="hidden" name="replies_id" value="<?php echo $replies_id;?>">
                                         </div> 
                                     </div>
-                                    <span class = "error"><?php echo $userExperience;?></span>
                                 </div>
                                 <hr>
-                                <span class = "error"><?php echo $feedback;?></span>
+                                <span class = "error"></span>
                                 <div class="form-group">
                                 <textarea class="form-control" name="feedback" rows="15" placeholder="Your Comment ..."></textarea>
-                                </div>
-                                <div class="form-group ">
-                                    <div class="col-xs-12">
-                                        <span class = "error"><?php echo $ticket_id;?></span>
-                                        <input class="form-control" type="text" name="ticket_id"  placeholder="Please Enter Ticket ID"> </div>
                                 </div>
                                 <div class="form-group text-center m-t-20">
                                     <div class="col-xs-12">

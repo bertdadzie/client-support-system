@@ -66,10 +66,10 @@ switch ($n) {
 		$content_title = 'Client Support';
 		$content_path = 'n/ticketActionclient.php';
 		break;
-	case 'Client-support-ps.php':
+	case 'clientAction':
 		$n_title = 'Client Support';
 		$content_title = 'Client Support';
-		$content_path = 'n/Client-support-ps.php';
+		$content_path = 'n/clientAction.php';
 		break;
 	case 'update-status':
 		$n_title = 'update status';

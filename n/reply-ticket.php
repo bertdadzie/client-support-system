@@ -2,6 +2,24 @@
 require('config/dbconfig.php');
 require('functions.php');
 require('variables.php');
+
+$sql = "SELECT * FROM `feedback`";
+require('config/dbconfig.php');
+$resultFeedback = mysqli_query($con, $sql);
+while($Feedback = mysqli_fetch_assoc($resultFeedback)){
+
+    $data='<hr>
+    <li>  
+    <div class="chat-content">
+    <h5>'.$row['first_name']." ".$row['last_name'].'</h5>
+    <div class="box bg-light-inverse">'.$Feedback ['feedback'].'</div>
+    </div>
+    <div class="chat-time">'.$Feedback['replies_id'].'</div> 
+    <div class="chat-time">'.$row['ticket_date'].'</div> 
+
+    </li>';
+
+}
 ?>
 
                 
@@ -69,7 +87,7 @@ require('variables.php');
                                         <ul class="chat-list p-20">
                                             <!--chat Row -->
                                             <li>
-                                                <div class="chat-img"><img src="assets/images/users/2.jpg" alt="user" /></div>
+                                                <div class="chat-img"><img src="assets/images/users/email.jpg" alt="user" /></div>
                                                 <div class="chat-content">
                                                     <h5><?php echo $row['first_name']." ".$row['last_name']; ?></h5>
                                                     <div class="box bg-light-info"><?php echo $row['ticket_description']; ?></div>
@@ -78,7 +96,8 @@ require('variables.php');
                                             </li>
                                             
                                         <?php   while($datReply = mysqli_fetch_assoc($replyResult)){
-                                             echo'<div class="b-all m-b-20 p-10">
+                                             echo'
+                                             <div class="b-all m-b-20 p-10">
                                                 <li class="reverse">  
                                                    <div class="chat-content">
                                                      <h5>'.$datReply["first_name"].'</h5>
@@ -86,7 +105,17 @@ require('variables.php');
                                                     </div>
                                                     <div class="chat-img"><img src="'.$datReply["image"].'"alt="user" /></div>
                                                     <div class="chat-time">'.$datReply["date"].'</div> 
-                                                </li></div>';
+
+                                                </li>
+                                               <li>
+                                                <div class="chat-img"><img src="assets/images/users/email.jpg" alt="user" /></div>
+                                                <div class="chat-content">
+                                                    <h5>'.$datReply["first_name"].'</h5>
+                                                    <div class="box bg-light-info">'.$datReply["replies"].'</div>
+                                                </div>
+                                                <div class="chat-time">'.$datReply["date"].'</div>
+                                            </li>
+                                                </div>';
                                              }?>
                                          
                                         </ul>
@@ -94,14 +123,11 @@ require('variables.php');
                                     <div class="card-body b-t">
                                         <form method="post" action="index.php?n=replies_action">
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-8">
                                                 <input type="hidden" name="ticket_id"  value="<?php echo $mid; ?>">
                                                 <input type="hidden" name="date"  value="<?php echo $date; ?>">
                                                 <input type="hidden" name="supportAgents_id"  value="<?php echo $_SESSION['ID']; ?>">
-                                                <textarea class="form-control" style="height: 100px;" name="replies"  rows="15" placeholder="Enter text ..."></textarea>
-                                            </div>
-                                            <div class="col-2">
-                                                <input type="file" name="attachment[]"  value="<?php echo $mid; ?>">
+                                                <textarea class="form-control" name="replies"  rows="15" placeholder="Enter text ..."></textarea>
                                             </div>
                                             <div class="col-2 text-right">
                                                 <input type="checkbox"  name="Allow_feedback" value="yes" id="minimal-checkbox-1">

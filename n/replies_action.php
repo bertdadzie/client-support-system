@@ -1,27 +1,25 @@
 <?php
+/* POST  VARIABLES  */
+$replies=$_POST['replies'];
+$ticket_id=$_POST['ticket_id'];
+$date=$_POST['date'];
+$Allow_feedback=$_POST['Allow_feedback'];
+$supportAgents_id=$_POST['supportAgents_id'];
+$id = $_POST['ticket_id'];
+$Allow_feedback= $_POST['Allow_feedback'];
+
+/* PHPMAILER    */
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
-
-$id = $_POST['ticket_id'];
-$Allow_feedback= $_POST['Allow_feedback'];
-if ($Allow_feedback) {
-  $feed='<a href="https://ismailsolutions.com/feedback.php" target="_blank">Your Feedback</a>';
-}
-
-require('config/dbconfig.php');
-require('functions.php');
-
-//$emai = $reply['email'];
-//$replies = $reply['replies'];
-//rsort($emails);
-
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
-
-$query= addRecord($_POST,'ticket_replies');
+/* INSERTING DATA INTO REPLIES    */
+require('config/dbconfig.php');
+$query= "INSERT INTO ticket_replies (replies, ticket_id, date,  Allow_feedback, supportAgents_id)
+VALUES ('$replies', $ticket_id, '$date', '$Allow_feedback', $supportAgents_id);";
 require('config/dbconfig.php');
 $result = mysqli_query($con,$query);
 if ($result) {
@@ -33,6 +31,10 @@ $reply= $row["replies"];
 $email= $row["email"];
 $dept= $row["dept"];
 $ticketNumber= $row["ticketNumber"];
+$replies_id = $row['replies_id'];
+if ($Allow_feedback) {
+  $feed='<a href="http://localhost:8081/client-support-system/feedback.php?id='.$row["replies_id"].'" target="_blank">Your Feedback</a>';
+}
 
 $mail = new PHPMailer(true);
 

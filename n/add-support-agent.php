@@ -79,9 +79,7 @@ while($row = mysqli_fetch_array($result))
 
 
                                 <div class="form-group ">
-                                    <div class="col-xs-12">
-                                        <input name="image" type="file" multiple />
-                                    </div>
+                                    <input type="file" name="image" id="input-file-now-custom-1" class="dropify" data-default-file="" />
                                 </div>
 
                                 <div class="form-group text-center m-t-20">

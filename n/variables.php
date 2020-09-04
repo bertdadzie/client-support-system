@@ -18,3 +18,4 @@ $resultDepartment = mysqli_query($con, $sql);
 
 $sql = selectStatus($mid);
 $resultStatus = mysqli_query($con, $sql);
+

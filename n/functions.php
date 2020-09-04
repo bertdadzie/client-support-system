@@ -56,4 +56,11 @@
         return $sql;
     }
 
+    function selectFeedback($mid)
+    {
+         $sql = "SELECT * FROM `feedback` where replies_id=$mid";
+        return $sql;
+    }
+
+
     
